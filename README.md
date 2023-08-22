@@ -82,7 +82,7 @@ rebuild
 OR
 
 ```
-sudo nixos-rebuild switch --flake '.#redyf'
+sudo nixos-rebuild switch --flake '.#<config-name>'
 ```
 
 - Connect to internet (Change what's inside the brackets with your info).
