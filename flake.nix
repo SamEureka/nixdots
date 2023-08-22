@@ -1,8 +1,8 @@
 {
-  description = "Redyf's NixOS config for desktop and laptop";
+  description = "Sam's NixOS config for raider and precision";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/release-23.05";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     hyprland.url = "github:hyprwm/Hyprland";
     waybar-hyprland.url = "github:hyprwm/hyprland";
@@ -32,7 +32,7 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-      redyf =
+      raider =
         nixpkgs.lib.nixosSystem
         {
           system = "x86_64-linux";
@@ -43,27 +43,27 @@
               ;
           };
           modules = [
-            ./hosts/redyf/configuration.nix
+            ./hosts/raider/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = false;
                 extraSpecialArgs = {inherit inputs;};
-                users.redyf = ./home/desktop/home.nix;
+                users.sam = ./home/raider/home.nix;
               };
             }
             hyprland.nixosModules.default
             {programs.hyprland.enable = true;}
           ];
         };
-      laptop = nixpkgs.lib.nixosSystem {
+      precision = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs hyprland;
         };
         modules = [
-          ./hosts/laptop/configuration.nix
+          ./hosts/precision/configuration.nix
           # home-manager.nixosModules.home-manager
           # {
           #   home-manager = {

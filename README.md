@@ -3,16 +3,16 @@
   <br>
   <br>
   <div>
-    <a href="https://github.com/redyf/nixdots/issues">
-        <img src="https://img.shields.io/github/issues/redyf/nixdots?color=fab387&labelColor=303446&style=for-the-badge">
+    <a href="https://github.com/sameureka/nixdots/issues">
+        <img src="https://img.shields.io/github/issues/sameureka/nixdots?color=fab387&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/redyf/nixdots/stargazers">
-        <img src="https://img.shields.io/github/stars/redyf/nixdots?color=ca9ee6&labelColor=303446&style=for-the-badge">
+    <a href="https://github.com/sameureka/nixdots/stargazers">
+        <img src="https://img.shields.io/github/stars/sameureka/nixdots?color=ca9ee6&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/redyf/nixdots/">
-        <img src="https://img.shields.io/github/repo-size/redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
+    <a href="https://github.com/sameureka/nixdots/">
+        <img src="https://img.shields.io/github/repo-size/sameureka/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/redyf/nixdots/blob/master/LICENSE">
+    <a href="https://github.com/sameureka/nixdots/blob/master/LICENSE">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
     </a>
     <br>
@@ -22,13 +22,14 @@
 
 <div align="center">
 <h1>
-❄️ NixOS dotfiles ❄️
+❄️ NixOS periodi ❄️
 </h1>
 </div>
-<h2 align="center">My NixOS system configuration. Feel free to explore!</h2>
+<h2 align="center">NixOS system configuration. Feel free to explore!</h2>
 
 ## Special thanks to:
 
+- [Redyf](https://github.com/Redyf/nixdots)
 - [NixOS Manual](https://nixos.org/manual/nixos/stable/)
 - [ZerotoNix](https://zero-to-nix.com)
 - [notusknot](https://github.com/notusknot)
@@ -42,7 +43,7 @@
 <div align="center">
 <img align="right" src="./assets/rice.png" alt="Rice Preview" width="400px" height="253"/>
 <img align="right" src="./assets/nvim.png" alt"Rice Preview2" width="400px" height="253"/>
-  <a href="https://github.com/Redyf/RedVim">Neovim</a>
+  <a href="https://github.com/sameureka/SamVim">Neovim</a>
 </div>
 
 ```mint
@@ -55,17 +56,17 @@
  ├─ Shell   -> ZSH
  ╰─ Resource Monitor -> Btop
 
- ╭─ Model -> DELL XPS 8940
- ├─ CPU   -> Intel i5-10400f @ 4.3GHz
- ├─ GPU   -> NVIDIA GeForce GTX 1650 SUPER
- ╰─ Resolution -> 1920x1080@165hz
+ ╭─ Model -> DELL Precision 3560
+ ├─ CPU   -> Intel i5-1145G7 (8) @ 4.4GHz
+ ├─ GPU   -> Intel TigerLake-LP GT2 (Iris Xe)
+ ╰─ Resolution -> 1920x1080@59hz
 
  ╭─ WM       -> Hyprland
- ├─ Terminal -> Foot
+ ├─ Terminal -> Kitty
  ├─ Theme    -> Catppuccin
  ├─ Icons    -> Papirus-Dark
  ├─ Font     -> JetBrains Mono Nerd Font
- ╰─ Hotel    -> Trivago
+ ╰─ Hotel    -> Hotels.com
 
                         
 ```
@@ -107,7 +108,7 @@ Pré-requisitos:
 Clono the repo and cd into it:
 
 ```bash
-git clone https://github.com/Redyf/nixdots ~/flake && cd ~/flake
+git clone https://github.com/sameureka/nixdots ~/flake && cd ~/flake
 ```
 
 Create a hardware configuration for your system:
@@ -122,8 +123,8 @@ You can add or create your own output in flake.nix through the following templat
 nixosConfigurations = {
     # Now, creating a new system config can be done with a single line.
     #                                Architecture   Hostname
-    redyf = nixpkgs.lib.nixosSystem "x86_64-linux" "desktop";
-    laptop = nixpkgs.lib.nixosSystem "x86_64-linux" "laptop";
+    raider = nixpkgs.lib.nixosSystem "x86_64-linux" "raider";
+    precision = nixpkgs.lib.nixosSystem "x86_64-linux" "precision";
     # ADD YOUR COMPUTER HERE! (feel free to remove mine)
     yourComputer = nixpkgs.lib.nixosSystem "x86_64-linux" "yourComputer";
 };
@@ -135,8 +136,8 @@ Finally, rebuild your configuration with:
 sudo nixos-rebuild switch --flake .#yourComputer
 ```
 
-And that's all! If you have any problem, feel free to make an issue in the github repo. (https://github.com/Redyf/nixdots/issues).
+And that's all!
 
 ## Conclusion
 
-And so that was my setup for NixOS. The code is licensed under the MIT license, so you can use or distribute the code however you like. If you have any questions, contact me on Discord: `Redyf#1337`.
+This code is licensed under the MIT license, so you can use or distribute the code however you like.

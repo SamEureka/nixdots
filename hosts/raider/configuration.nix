@@ -18,8 +18,8 @@
   # Bootloader.
   boot = {
     # Kernel Modules
-    kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
-    extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
+    #kernelModules = ["v4l2loopback"]; # Autostart kernel modules on boot
+    #extraModulePackages = with config.boot.kernelPackages; [v4l2loopback]; # loopback module to make OBS virtual camera work
     loader = {
       systemd-boot.enable = false;
       timeout = 10;
@@ -89,7 +89,7 @@
     dhcpcd.wait = "background";
     # avoid checking if IP is already taken to boot a few seconds faster
     dhcpcd.extraConfig = "noarp";
-    hostName = "nixos"; # Define your hostname.
+    hostName = "raider"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
@@ -97,31 +97,31 @@
   };
 
   # Set your time zone.
-  time.timeZone = "America/Bahia";
+  time.timeZone = "America/Los_Angeles";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "pt_BR.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pt_BR.UTF-8";
-    LC_IDENTIFICATION = "pt_BR.UTF-8";
-    LC_MEASUREMENT = "pt_BR.UTF-8";
-    LC_MONETARY = "pt_BR.UTF-8";
-    LC_NAME = "pt_BR.UTF-8";
-    LC_NUMERIC = "pt_BR.UTF-8";
-    LC_PAPER = "pt_BR.UTF-8";
-    LC_TELEPHONE = "pt_BR.UTF-8";
-    LC_TIME = "pt_BR.UTF-8";
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.windowManager.awesome.enable = true;
-  services.xserver.desktopManager.mate.enable = true;
+  #services.xserver.desktopManager.mate.enable = true;
   # services.xserver.windowManager.i3.enable = true;
   # services.xserver.windowManager.bspwm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Enables services
   services.logmein-hamachi.enable = false;
@@ -235,7 +235,7 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "br";
+    layout = "us";
     xkbVariant = "";
     libinput = {
       enable = true;
@@ -249,7 +249,7 @@
   };
 
   # Configure console keymap
-  console.keyMap = "br-abnt2";
+  #console.keyMap = "br-abnt2";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -269,29 +269,21 @@
 
   users = {
     users = {
-      redyf = {
+      sam = {
         isNormalUser = true;
-        description = "redyf";
-        initialPassword = "red123";
+        description = "Sam Dennon";
+        initialPassword = "sam123";
         shell = pkgs.zsh;
         extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd"];
       };
     };
   };
 
-  # Use doas instead-of sudo
+  # sudo enabled and wheel doesn't need password. So fucking lazy!
   security = {
-    sudo.enable = false;
-    doas = {
+    sudo = {
       enable = true;
-      wheelNeedsPassword = true;
-      extraRules = [
-        {
-          users = ["redyf"];
-          keepEnv = true;
-          persist = true;
-        }
-      ];
+      wheelNeedsPassword = false;
     };
   };
 
@@ -345,5 +337,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 }

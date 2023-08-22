@@ -7,8 +7,8 @@
 }: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "redyf";
-  home.homeDirectory = "/home/redyf";
+  home.username = "sam";
+  home.homeDirectory = "/home/sam";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -21,7 +21,7 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
 
   # Imports
   imports = [

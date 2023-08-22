@@ -8,9 +8,9 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    username = "redyf";
-    homeDirectory = "/home/redyf";
-    stateVersion = "22.11";
+    username = "sam";
+    homeDirectory = "/home/sam";
+    stateVersion = "23.05";
   };
 
   # This value determines the Home Manager release that your
